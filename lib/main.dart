@@ -1,5 +1,6 @@
 import 'package:crud/firebase_options.dart';
 import 'package:crud/pages/home_page.dart';
+import 'package:crud/pages/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      // home: HomePage(),
+      home: LoginPage(),
     );
   }
 }
