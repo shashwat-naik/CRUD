@@ -38,47 +38,24 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
-      // Wrong Email
-      if (e.code == 'user-not-found') {
-        // Error show
-        wrongEmailMessage();
-      }
-      // Wrong Password
-      else if (e.code == 'wrong-password') {
-        // Error show
-        wrongPasswordMessage();
-      } 
-      else {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: const Text('Error'),
-            content: Text(e.message ?? 'Unknown error'),
-          );
-        },
-      );
+      // Show error msg
+      showErrorMessage(e.code);
+
     }
   }
-}
 
-  void wrongEmailMessage() {
+  void showErrorMessage(String message) {
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Incorrect Email'),
-        );
-      },
-    );
-  }
-
-  void wrongPasswordMessage() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text('Incorrect Password'),
+          backgroundColor: Colors.black12,
+          title: Center(
+            child: Text(
+              message,
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
         );
       },
     );
