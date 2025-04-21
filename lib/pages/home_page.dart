@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crud/services/firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -47,10 +48,15 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [IconButton(onPressed: signUserOut, icon: Icon(Icons.logout))],
         title: Text("NoteIt"),
       ),
       floatingActionButton: FloatingActionButton(
@@ -101,7 +107,7 @@ class _HomePageState extends State<HomePage> {
           }
           // if there is no data to return
           else {
-            return const Text("No Notes!!");
+            return const Text("No Notes for ");
           }
         },
       ),
