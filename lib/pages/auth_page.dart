@@ -1,7 +1,7 @@
 // Usefull to tell whether the user is signedin or not
 
 import 'package:crud/pages/home_page.dart';
-import 'package:crud/pages/login_page.dart';
+import 'package:crud/pages/login_or_register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -17,8 +17,8 @@ class AuthPage extends StatelessWidget {
           if (snapshort.hasData) {
             return HomePage();
           } else {
-            return LoginPage();
-          }
+            return LoginOrRegisterPage();
+          } 
         },
       ),
     );
