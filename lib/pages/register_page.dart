@@ -1,6 +1,7 @@
 import 'package:crud/components/my_button.dart';
 import 'package:crud/components/my_textfield.dart';
 import 'package:crud/components/square_tile.dart';
+import 'package:crud/services/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -155,10 +156,13 @@ class _RegisterPageState extends State<RegisterPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // Google
-                    SquareTile(imagePath: ('assets/google.png')),
+                    SquareTile(
+                      onTap: () => AuthService().signInWithGoogle(),
+                      imagePath: ('assets/google.png'),
+                    ),
                     SizedBox(width: 15),
                     // Apple
-                    SquareTile(imagePath: ('assets/apple.png')),
+                    SquareTile(onTap: () {}, imagePath: ('assets/apple.png')),
                   ],
                 ),
                 SizedBox(height: 30),
