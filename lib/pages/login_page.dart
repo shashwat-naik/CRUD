@@ -164,8 +164,12 @@ class _LoginPageState extends State<LoginPage> {
                         onTap: () => AuthService().signInWithGoogle(),
                         imagePath: ('assets/google.png')),
                     SizedBox(width: 15),
-                    // Apple
-                    SquareTile(onTap: () {}, imagePath: ('assets/apple.png')),
+                    // GitHub
+                    /*  SquareTile(
+                        // onTap: () => AuthService().signInWithGitHub(context),
+                        onTap: ()  {},
+                        imagePath: ('assets/github.png'),
+                        ), */
                   ],
                 ),
                 SizedBox(height: 30),
